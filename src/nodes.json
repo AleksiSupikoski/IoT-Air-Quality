@@ -1,0 +1,1878 @@
+[
+    {
+        "id": "aa2352e70a75489a",
+        "type": "tab",
+        "label": "Project IOT",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ef5728e930bf5d1d",
+        "type": "group",
+        "z": "aa2352e70a75489a",
+        "name": "Weather API",
+        "style": {
+            "stroke": "#ffC000",
+            "fill": "#ffcf3f",
+            "fill-opacity": "0.12",
+            "label": true
+        },
+        "nodes": [
+            "988da1445e9fbf39",
+            "ea9af096b45dc30c",
+            "b29f6696fd3b0d06",
+            "5e2648cf3c73eb75"
+        ],
+        "x": 912.3333129882812,
+        "y": 490.6666259765625,
+        "w": 832,
+        "h": 82
+    },
+    {
+        "id": "388328d0a6b43603",
+        "type": "debug",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 490,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "7610064f8cf5624a",
+        "type": "http response",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "statusCode": "200",
+        "headers": {},
+        "x": 480,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "4cee7db8040e1616",
+        "type": "http in",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "url": "/update-sensors",
+        "method": "post",
+        "upload": true,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 600,
+        "wires": [
+            [
+                "388328d0a6b43603",
+                "7610064f8cf5624a",
+                "a774490a46bab47c"
+            ]
+        ]
+    },
+    {
+        "id": "a774490a46bab47c",
+        "type": "json",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": true,
+        "x": 470,
+        "y": 600,
+        "wires": [
+            [
+                "0373a7f427a6488d"
+            ]
+        ]
+    },
+    {
+        "id": "b8bc7ca4b59cc676",
+        "type": "mqtt in",
+        "z": "aa2352e70a75489a",
+        "name": "temperature",
+        "topic": "device/sensors/temp",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "98659024e9ac05ba",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 160,
+        "wires": [
+            [
+                "f0ac9d206a19c690"
+            ]
+        ]
+    },
+    {
+        "id": "a693788f0ea4c884",
+        "type": "mqtt in",
+        "z": "aa2352e70a75489a",
+        "name": "aqi",
+        "topic": "device/sensors/aqi",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "98659024e9ac05ba",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 280,
+        "wires": [
+            [
+                "9fc0f372afb12935"
+            ]
+        ]
+    },
+    {
+        "id": "c4a102eecb6ad8f3",
+        "type": "mqtt in",
+        "z": "aa2352e70a75489a",
+        "name": "gas",
+        "topic": "device/sensors/gas",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "98659024e9ac05ba",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 240,
+        "wires": [
+            [
+                "92b8ed665c96e860"
+            ]
+        ]
+    },
+    {
+        "id": "394c48d61acac7d1",
+        "type": "mqtt in",
+        "z": "aa2352e70a75489a",
+        "name": "humidity",
+        "topic": "device/sensors/humidity",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "98659024e9ac05ba",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 200,
+        "wires": [
+            [
+                "dd52d375899498cc"
+            ]
+        ]
+    },
+    {
+        "id": "6b6fb67320bb3f2a",
+        "type": "mqtt in",
+        "z": "aa2352e70a75489a",
+        "name": "wifi_strength",
+        "topic": "device/wifi",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "98659024e9ac05ba",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 320,
+        "wires": [
+            [
+                "f4faad83af4665ce"
+            ]
+        ]
+    },
+    {
+        "id": "7f916760c8089c5a",
+        "type": "mqtt in",
+        "z": "aa2352e70a75489a",
+        "name": "ID",
+        "topic": "device/ID",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "98659024e9ac05ba",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 360,
+        "wires": [
+            [
+                "c5d2a262e5fb553a"
+            ]
+        ]
+    },
+    {
+        "id": "f531547de31eebd1",
+        "type": "join",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "8",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 610,
+        "y": 300,
+        "wires": [
+            [
+                "0373a7f427a6488d"
+            ]
+        ]
+    },
+    {
+        "id": "0373a7f427a6488d",
+        "type": "change",
+        "z": "aa2352e70a75489a",
+        "name": "Prep for influx",
+        "rules": [
+            {
+                "t": "set",
+                "p": "fields.temperature",
+                "pt": "msg",
+                "to": "payload.temperature",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "fields.humidity",
+                "pt": "msg",
+                "to": "payload.humidity",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "fields.gas",
+                "pt": "msg",
+                "to": "payload.gas",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "fields.aqi",
+                "pt": "msg",
+                "to": "payload.aqi",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "fields.rssi",
+                "pt": "msg",
+                "to": "payload.rssi",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "fields.humidity_api",
+                "pt": "msg",
+                "to": "weather.main.humidity",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "fields.temp_api",
+                "pt": "msg",
+                "to": "weather.main.temp",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "tags.ID",
+                "pt": "msg",
+                "to": "id",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "tags.GPS_lon",
+                "pt": "msg",
+                "to": "payload.GPS_lon",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "tags.GPS_lat",
+                "pt": "msg",
+                "to": "payload.GPS_lat",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$append(fields,tags)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 300,
+        "wires": [
+            [
+                "fea226248853297e",
+                "1c8a2133eba107b5"
+            ]
+        ]
+    },
+    {
+        "id": "dd52d375899498cc",
+        "type": "change",
+        "z": "aa2352e70a75489a",
+        "name": "humidity",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "humidity",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 200,
+        "wires": [
+            [
+                "f531547de31eebd1"
+            ]
+        ]
+    },
+    {
+        "id": "92b8ed665c96e860",
+        "type": "change",
+        "z": "aa2352e70a75489a",
+        "name": "gas",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "gas",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 240,
+        "wires": [
+            [
+                "f531547de31eebd1"
+            ]
+        ]
+    },
+    {
+        "id": "9fc0f372afb12935",
+        "type": "change",
+        "z": "aa2352e70a75489a",
+        "name": "aqi",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "aqi",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 280,
+        "wires": [
+            [
+                "f531547de31eebd1"
+            ]
+        ]
+    },
+    {
+        "id": "f4faad83af4665ce",
+        "type": "change",
+        "z": "aa2352e70a75489a",
+        "name": "rssi",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "rssi",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 320,
+        "wires": [
+            [
+                "f531547de31eebd1"
+            ]
+        ]
+    },
+    {
+        "id": "b0ab12431b1490d1",
+        "type": "mqtt in",
+        "z": "aa2352e70a75489a",
+        "name": "GPS latitude",
+        "topic": "device/GPS_lat",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "98659024e9ac05ba",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 400,
+        "wires": [
+            [
+                "c764d85cba4b516d"
+            ]
+        ]
+    },
+    {
+        "id": "c5d2a262e5fb553a",
+        "type": "change",
+        "z": "aa2352e70a75489a",
+        "name": "ID",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "ID",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 360,
+        "wires": [
+            [
+                "f531547de31eebd1"
+            ]
+        ]
+    },
+    {
+        "id": "c764d85cba4b516d",
+        "type": "change",
+        "z": "aa2352e70a75489a",
+        "name": "GPS_lat",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "GPS_lat",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "GPS_lat",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 400,
+        "wires": [
+            [
+                "f531547de31eebd1"
+            ]
+        ]
+    },
+    {
+        "id": "fea226248853297e",
+        "type": "debug",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1030,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "f0ac9d206a19c690",
+        "type": "change",
+        "z": "aa2352e70a75489a",
+        "name": "temperature",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "temperature",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 390,
+        "y": 160,
+        "wires": [
+            [
+                "f531547de31eebd1"
+            ]
+        ]
+    },
+    {
+        "id": "1c8a2133eba107b5",
+        "type": "influxdb out",
+        "z": "aa2352e70a75489a",
+        "influxdb": "222d08624a021b4c",
+        "name": "esp32",
+        "measurement": "esp32",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "zhanel.zhexenova@alumni.nu.edu.kz",
+        "bucket": "sensor_readings",
+        "x": 1010,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "7fedb5dec18d56aa",
+        "type": "change",
+        "z": "aa2352e70a75489a",
+        "name": "GPS_lon",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "GPS_lon",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "GPS_lon",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 440,
+        "wires": [
+            [
+                "f531547de31eebd1"
+            ]
+        ]
+    },
+    {
+        "id": "698ddde004233d2a",
+        "type": "mqtt in",
+        "z": "aa2352e70a75489a",
+        "name": "GPS longitude",
+        "topic": "device/GPS_lon",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "98659024e9ac05ba",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 440,
+        "wires": [
+            [
+                "7fedb5dec18d56aa"
+            ]
+        ]
+    },
+    {
+        "id": "d954b83c3fa9ab3b",
+        "type": "telegram command",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "command": "/getID",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "0e28a1cc2da85f0d",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 990,
+        "y": 1200,
+        "wires": [
+            [
+                "625c10d22034adcf"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "625c10d22034adcf",
+        "type": "function",
+        "z": "aa2352e70a75489a",
+        "name": "GET ID",
+        "func": "var val = { payload: flow.get(\"id\") };\n//val = JSON.stringify(val);\nval = val.payload\nmsg.payload = {\n    type: 'message',\n    chatId: \"-740268708\",\n    content: \"ID of the end-device is \" + val\n}\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1240,
+        "y": 1200,
+        "wires": [
+            [
+                "fcd2841f3119486f"
+            ]
+        ]
+    },
+    {
+        "id": "88b4b8067371f64b",
+        "type": "telegram command",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "command": "/getTemp",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "0e28a1cc2da85f0d",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 1000,
+        "y": 900,
+        "wires": [
+            [
+                "76070158a6a76219"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "76070158a6a76219",
+        "type": "influxdb in",
+        "z": "aa2352e70a75489a",
+        "influxdb": "222d08624a021b4c",
+        "name": "get_temp",
+        "query": "from(bucket: \"sensor_readings\")\n  |> range(start: -1h)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"esp32\")\n  |> filter(fn: (r) => r[\"GPS_lat\"] == \"44.507393\")\n  |> filter(fn: (r) => r[\"GPS_lon\"] == \"11.356048\")\n  |> filter(fn: (r) => r[\"ID\"] == \"ESP32_001\")\n  |> filter(fn: (r) => r[\"_field\"] == \"temperature\")\n  |> toInt()\n  |> aggregateWindow(every: 1m, fn: last, createEmpty: false)\n",
+        "rawOutput": false,
+        "precision": "",
+        "retentionPolicy": "",
+        "org": "zhanel.zhexenova@alumni.nu.edu.kz",
+        "x": 1240,
+        "y": 900,
+        "wires": [
+            [
+                "cf61041a40eff752"
+            ]
+        ]
+    },
+    {
+        "id": "cf61041a40eff752",
+        "type": "function",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "func": "var val = { payload: msg.payload[0]._value };\n//val = JSON.stringify(val);\nval = val.payload\nmsg.payload = {\n    type: 'message',\n    chatId: \"-740268708\",\n    content: \"Temperature value is \" + val\n}\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1440,
+        "y": 900,
+        "wires": [
+            [
+                "fcd2841f3119486f"
+            ]
+        ]
+    },
+    {
+        "id": "3e3ca6f0381baf53",
+        "type": "telegram command",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "command": "/getAQI",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "0e28a1cc2da85f0d",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 990,
+        "y": 940,
+        "wires": [
+            [
+                "1898bd5861b3ea72"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "1898bd5861b3ea72",
+        "type": "influxdb in",
+        "z": "aa2352e70a75489a",
+        "influxdb": "222d08624a021b4c",
+        "name": "get_aqi",
+        "query": "from(bucket: \"sensor_readings\")\n  |> range(start: -1h)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"esp32\")\n  |> filter(fn: (r) => r[\"GPS_lat\"] == \"44.507393\")\n  |> filter(fn: (r) => r[\"GPS_lon\"] == \"11.356048\")\n  |> filter(fn: (r) => r[\"ID\"] == \"ESP32_001\")\n  |> filter(fn: (r) => r[\"_field\"] == \"aqi\")\n  |> toInt()\n  |> last()",
+        "rawOutput": false,
+        "precision": "",
+        "retentionPolicy": "",
+        "org": "zhanel.zhexenova@alumni.nu.edu.kz",
+        "x": 1240,
+        "y": 940,
+        "wires": [
+            [
+                "8e917c9d5f6c9f94"
+            ]
+        ]
+    },
+    {
+        "id": "8e917c9d5f6c9f94",
+        "type": "function",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "func": "var val = { payload: msg.payload[0]._value };\n//val = JSON.stringify(val);\nval = val.payload\nmsg.payload = {\n    type: 'message',\n    chatId: \"-740268708\", \n    content: \"AQI value is \" + val\n}\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1440,
+        "y": 940,
+        "wires": [
+            [
+                "fcd2841f3119486f"
+            ]
+        ]
+    },
+    {
+        "id": "2289897c51f765e1",
+        "type": "telegram command",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "command": "/getAirQuality",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "0e28a1cc2da85f0d",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 1010,
+        "y": 980,
+        "wires": [
+            [
+                "e3d7eb8caab7c4a5"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "e3d7eb8caab7c4a5",
+        "type": "influxdb in",
+        "z": "aa2352e70a75489a",
+        "influxdb": "222d08624a021b4c",
+        "name": "get_airQuality",
+        "query": "from(bucket: \"sensor_readings\")\n  |> range(start: -1h)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"esp32\")\n  |> filter(fn: (r) => r[\"GPS_lat\"] == \"44.507393\")\n  |> filter(fn: (r) => r[\"GPS_lon\"] == \"11.356048\")\n  |> filter(fn: (r) => r[\"ID\"] == \"ESP32_001\")\n  |> filter(fn: (r) => r[\"_field\"] == \"gas\")\n  |> toInt()\n  |> aggregateWindow(every: 1m, fn: last, createEmpty: false)\n",
+        "rawOutput": false,
+        "precision": "",
+        "retentionPolicy": "",
+        "org": "zhanel.zhexenova@alumni.nu.edu.kz",
+        "x": 1260,
+        "y": 980,
+        "wires": [
+            [
+                "6d82cb0da64ec288"
+            ]
+        ]
+    },
+    {
+        "id": "6d82cb0da64ec288",
+        "type": "function",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "func": "var val = { payload: msg.payload[0]._value };\n//val = JSON.stringify(val);\nval = val.payload\nmsg.payload = {\n    type: 'message',\n    chatId: \"-740268708\",\n    content: \"Air Quality value is \" + val\n}\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1440,
+        "y": 980,
+        "wires": [
+            [
+                "fcd2841f3119486f"
+            ]
+        ]
+    },
+    {
+        "id": "a2f737f71c9478cb",
+        "type": "telegram command",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "command": "/getHumidity",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "0e28a1cc2da85f0d",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 1010,
+        "y": 1020,
+        "wires": [
+            [
+                "62983de8495c7e25"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "62983de8495c7e25",
+        "type": "influxdb in",
+        "z": "aa2352e70a75489a",
+        "influxdb": "222d08624a021b4c",
+        "name": "get_humidity",
+        "query": "from(bucket: \"sensor_readings\")\n  |> range(start: -1h)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"esp32\")\n  |> filter(fn: (r) => r[\"GPS_lat\"] == \"44.507393\")\n  |> filter(fn: (r) => r[\"GPS_lon\"] == \"11.356048\")\n  |> filter(fn: (r) => r[\"ID\"] == \"ESP32_001\")\n  |> filter(fn: (r) => r[\"_field\"] == \"humidity\")\n  |> toInt()\n  |> aggregateWindow(every: 1m, fn: last, createEmpty: false)\n",
+        "rawOutput": false,
+        "precision": "",
+        "retentionPolicy": "",
+        "org": "zhanel.zhexenova@alumni.nu.edu.kz",
+        "x": 1250,
+        "y": 1020,
+        "wires": [
+            [
+                "91127d7d1c59a89e"
+            ]
+        ]
+    },
+    {
+        "id": "91127d7d1c59a89e",
+        "type": "function",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "func": "var val = { payload: msg.payload[0]._value };\n//val = JSON.stringify(val);\nval = val.payload\nmsg.payload = {\n    type: 'message',\n    chatId: \"-740268708\",\n    content: \"Humidity value is \" + val\n}\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1440,
+        "y": 1020,
+        "wires": [
+            [
+                "fcd2841f3119486f"
+            ]
+        ]
+    },
+    {
+        "id": "bfccc992235571fe",
+        "type": "telegram command",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "command": "/getRSSI",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "0e28a1cc2da85f0d",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 1000,
+        "y": 1060,
+        "wires": [
+            [
+                "3a22bfc9ac83289e"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "3a22bfc9ac83289e",
+        "type": "influxdb in",
+        "z": "aa2352e70a75489a",
+        "influxdb": "222d08624a021b4c",
+        "name": "get_rssi",
+        "query": "from(bucket: \"sensor_readings\")\n  |> range(start: -1h)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"esp32\")\n  |> filter(fn: (r) => r[\"GPS_lat\"] == \"44.507393\")\n  |> filter(fn: (r) => r[\"GPS_lon\"] == \"11.356048\")\n  |> filter(fn: (r) => r[\"ID\"] == \"ESP32_001\")\n  |> filter(fn: (r) => r[\"_field\"] == \"rssi\")\n  |> toInt()\n  |> aggregateWindow(every: 1m, fn: last, createEmpty: false)\n",
+        "rawOutput": false,
+        "precision": "",
+        "retentionPolicy": "",
+        "org": "zhanel.zhexenova@alumni.nu.edu.kz",
+        "x": 1240,
+        "y": 1060,
+        "wires": [
+            [
+                "c0701b446b465258"
+            ]
+        ]
+    },
+    {
+        "id": "c0701b446b465258",
+        "type": "function",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "func": "var val = { payload: msg.payload[0]._value };\n//val = JSON.stringify(val);\nval = val.payload\nmsg.payload = {\n    type: 'message',\n    chatId: \"-740268708\",\n    content: \"End-device's WiFi RSSI value is \" + val\n}\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1440,
+        "y": 1060,
+        "wires": [
+            [
+                "fcd2841f3119486f"
+            ]
+        ]
+    },
+    {
+        "id": "eb46e199f4addee3",
+        "type": "telegram command",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "command": "/getGPS",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "0e28a1cc2da85f0d",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 1000,
+        "y": 1140,
+        "wires": [
+            [
+                "c12803cc6cabe60a",
+                "935bf9e99f474339"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "fcd2841f3119486f",
+        "type": "telegram sender",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "bot": "0e28a1cc2da85f0d",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 1700,
+        "y": 1000,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "935bf9e99f474339",
+        "type": "function",
+        "z": "aa2352e70a75489a",
+        "name": "GET GPS_lon",
+        "func": "var val = { payload: flow.get(\"GPS_lon\") };\n//val = JSON.stringify(val);\nval = val.payload\nmsg.payload = {\n    type: 'message',\n    chatId: \"-740268708\",\n    content: \"GPS longitude is \" + val\n}\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1260,
+        "y": 1160,
+        "wires": [
+            [
+                "fcd2841f3119486f"
+            ]
+        ]
+    },
+    {
+        "id": "8b57b77af0711a78",
+        "type": "telegram command",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "command": "/getAll",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "0e28a1cc2da85f0d",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 990,
+        "y": 820,
+        "wires": [
+            [
+                "76070158a6a76219",
+                "1898bd5861b3ea72",
+                "e3d7eb8caab7c4a5",
+                "62983de8495c7e25",
+                "0f26700373cf7ca8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "0f26700373cf7ca8",
+        "type": "delay",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "3",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1000,
+        "y": 1280,
+        "wires": [
+            [
+                "9601485613fe6bf4",
+                "c12803cc6cabe60a",
+                "935bf9e99f474339"
+            ]
+        ]
+    },
+    {
+        "id": "9601485613fe6bf4",
+        "type": "delay",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "3",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1000,
+        "y": 1340,
+        "wires": [
+            [
+                "3a22bfc9ac83289e",
+                "625c10d22034adcf"
+            ]
+        ]
+    },
+    {
+        "id": "838a2ce7ace9011e",
+        "type": "comment",
+        "z": "aa2352e70a75489a",
+        "name": "The delay is needed for Telegram API (can not send too many messages)",
+        "info": "",
+        "x": 1400,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "c12803cc6cabe60a",
+        "type": "function",
+        "z": "aa2352e70a75489a",
+        "name": "GET GPS_lat ",
+        "func": "var val = { payload: flow.get(\"GPS_lat\") };\n//val = JSON.stringify(val);\nval = val.payload\nmsg.payload = {\n    type: 'message',\n    chatId: \"-740268708\",\n    content: \"GPS latitude is \" + val\n}\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1260,
+        "y": 1120,
+        "wires": [
+            [
+                "fcd2841f3119486f"
+            ]
+        ]
+    },
+    {
+        "id": "8666c6c173cdb30e",
+        "type": "function",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "func": "//recv = msg.payload.content;\n//check = \"test\"\n//if (recv == check) {\n//    msg.payload = \"test~! Good!\";\n//    return msg;\n//}\n//msg.payload = \"/help - get help\";\n//msg.payload.chatId = \"-740268708\"\nrecv = msg.payload.content;\nmsg.payload = {\n    type: 'message',\n    chatId: \"-740268708\",\n    content: \"/help - get help.\\n/editFreq __ - edit test frequency (s).\\n/switchProtocolMQTT - switch data communication protocol to MQTT\\n/switchProtocolHTTP - switch data communication protocol to HTTP\\n/editMinAQI ___ - Change MIN_AIR_QUALITY treshold for AQI index.\\n/editMaxAQI ___ - Change MAX_AIR_QUALITY treshold for AQI index.\\n\\nIn order to get mean values from the database use: \\n/getTemp\\n/getHumidity\\n/getAQI\\n/getAirQuality\\n/getRSSI\\n/getGPS\\n/getID\\n\\nOr simply use /getAll to get all values.\"\n}\n    \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 840,
+        "wires": [
+            [
+                "0080decf6e2ea6ce"
+            ]
+        ]
+    },
+    {
+        "id": "436cd9badbabaf34",
+        "type": "telegram command",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "command": "/help",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "0e28a1cc2da85f0d",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 110,
+        "y": 840,
+        "wires": [
+            [
+                "8666c6c173cdb30e"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "0080decf6e2ea6ce",
+        "type": "telegram sender",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "bot": "0e28a1cc2da85f0d",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 580,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ce9e2f4011462356",
+        "type": "telegram command",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "command": "/editFreq",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "0e28a1cc2da85f0d",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 120,
+        "y": 940,
+        "wires": [
+            [
+                "4de795baf94b30f2",
+                "6888fb84acc79e44"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "4de795baf94b30f2",
+        "type": "function",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "func": "recv = msg.payload.content;\nmsg.payload = {\n    type: 'message',\n    chatId: \"-740268708\",\n    content: \"Test frequency changed to \" + recv\n}\n    \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 980,
+        "wires": [
+            [
+                "f901ebe89e803825"
+            ]
+        ]
+    },
+    {
+        "id": "f901ebe89e803825",
+        "type": "telegram sender",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "bot": "0e28a1cc2da85f0d",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 560,
+        "y": 980,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9017980f635f5019",
+        "type": "mqtt out",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "topic": "device/modify/freq",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "98659024e9ac05ba",
+        "x": 570,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "6888fb84acc79e44",
+        "type": "function",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "func": "recv = msg.payload.content;\n\nvar newMsg = { payload: recv };\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 900,
+        "wires": [
+            [
+                "9017980f635f5019"
+            ]
+        ]
+    },
+    {
+        "id": "15bdc52a5e0eb319",
+        "type": "telegram command",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "command": "/switchProtocolHTTP",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "0e28a1cc2da85f0d",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 160,
+        "y": 1040,
+        "wires": [
+            [
+                "eafb51f7bf49d839"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "eafb51f7bf49d839",
+        "type": "function",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "func": "recv = msg.payload.content;\n\nvar newMsg = { payload: 1 };\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 1040,
+        "wires": [
+            [
+                "acf32753cc0828c3"
+            ]
+        ]
+    },
+    {
+        "id": "acf32753cc0828c3",
+        "type": "mqtt out",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "topic": "device/modify/protocolHttp",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "98659024e9ac05ba",
+        "x": 600,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "85af9fcc029586e9",
+        "type": "telegram command",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "command": "/editMinAQI",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "0e28a1cc2da85f0d",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 130,
+        "y": 1200,
+        "wires": [
+            [
+                "a7a17ce0ce601a9c",
+                "26794c310aafc1b5"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "a7a17ce0ce601a9c",
+        "type": "function",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "func": "recv = msg.payload.content;\nmsg.payload = {\n    type: 'message',\n    chatId: \"-740268708\",\n    content: \"AQI_MIN_VALUE changed to \" + recv\n}\n    \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 1240,
+        "wires": [
+            [
+                "4f506c8639147607"
+            ]
+        ]
+    },
+    {
+        "id": "4f506c8639147607",
+        "type": "telegram sender",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "bot": "0e28a1cc2da85f0d",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 560,
+        "y": 1240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "250bba6bb9f8b92e",
+        "type": "mqtt out",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "topic": "device/modify/MinAQI",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "98659024e9ac05ba",
+        "x": 600,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "26794c310aafc1b5",
+        "type": "function",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "func": "recv = msg.payload.content;\n\nvar newMsg = { payload: recv };\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 1160,
+        "wires": [
+            [
+                "250bba6bb9f8b92e"
+            ]
+        ]
+    },
+    {
+        "id": "2a7fc1d0480f7be7",
+        "type": "telegram command",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "command": "/editMaxAQI",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "0e28a1cc2da85f0d",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 130,
+        "y": 1360,
+        "wires": [
+            [
+                "e826baa97fe3bc26",
+                "30cc488843fc848a"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "e826baa97fe3bc26",
+        "type": "function",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "func": "recv = msg.payload.content;\nmsg.payload = {\n    type: 'message',\n    chatId: \"-740268708\",\n    content: \"AQI_MAX_VALUE changed to \" + recv\n}\n    \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 1400,
+        "wires": [
+            [
+                "d843894f553e0c3c"
+            ]
+        ]
+    },
+    {
+        "id": "d843894f553e0c3c",
+        "type": "telegram sender",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "bot": "0e28a1cc2da85f0d",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 560,
+        "y": 1400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9793153b3f6bca99",
+        "type": "mqtt out",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "topic": "device/modify/MaxAQI",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "98659024e9ac05ba",
+        "x": 580,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "30cc488843fc848a",
+        "type": "function",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "func": "recv = msg.payload.content;\n\nvar newMsg = { payload: recv };\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 1320,
+        "wires": [
+            [
+                "9793153b3f6bca99"
+            ]
+        ]
+    },
+    {
+        "id": "4eb2a5d64ff66570",
+        "type": "telegram command",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "command": "/switchProtocolMQTT",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "0e28a1cc2da85f0d",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 160,
+        "y": 1100,
+        "wires": [
+            [
+                "718b2474ae829320"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "718b2474ae829320",
+        "type": "function",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "func": "recv = msg.payload.content;\n\nvar newMsg = { payload: 0 };\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 1100,
+        "wires": [
+            [
+                "be10bcb3260e46da"
+            ]
+        ]
+    },
+    {
+        "id": "be10bcb3260e46da",
+        "type": "mqtt out",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "topic": "device/modify/protocolMQTT",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "98659024e9ac05ba",
+        "x": 610,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "0719f5dfe34c1b5d",
+        "type": "comment",
+        "z": "aa2352e70a75489a",
+        "name": "Telegram setup",
+        "info": "",
+        "x": 160,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "eb510da98658e5e4",
+        "type": "comment",
+        "z": "aa2352e70a75489a",
+        "name": "MQTT reciever",
+        "info": "",
+        "x": 240,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "603555a16f8f8840",
+        "type": "comment",
+        "z": "aa2352e70a75489a",
+        "name": "HTTP  reciever",
+        "info": "",
+        "x": 250,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "495f7988f318ad3e",
+        "type": "comment",
+        "z": "aa2352e70a75489a",
+        "name": "Sensor readings from Influx to Telegram ",
+        "info": "",
+        "x": 1290,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "988da1445e9fbf39",
+        "type": "inject",
+        "z": "aa2352e70a75489a",
+        "g": "ef5728e930bf5d1d",
+        "name": "Every 60 sec",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1038.3333129882812,
+        "y": 531.6666259765625,
+        "wires": [
+            [
+                "5e2648cf3c73eb75"
+            ]
+        ]
+    },
+    {
+        "id": "ea9af096b45dc30c",
+        "type": "http request",
+        "z": "aa2352e70a75489a",
+        "g": "ef5728e930bf5d1d",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 1418.3333129882812,
+        "y": 531.6666259765625,
+        "wires": [
+            [
+                "b29f6696fd3b0d06"
+            ]
+        ]
+    },
+    {
+        "id": "b29f6696fd3b0d06",
+        "type": "change",
+        "z": "aa2352e70a75489a",
+        "g": "ef5728e930bf5d1d",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "weather",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1638.3333129882812,
+        "y": 531.6666259765625,
+        "wires": [
+            [
+                "e6ded2db6de766da"
+            ]
+        ]
+    },
+    {
+        "id": "5e2648cf3c73eb75",
+        "type": "function",
+        "z": "aa2352e70a75489a",
+        "g": "ef5728e930bf5d1d",
+        "name": "Configure API URL",
+        "func": "var lat = flow.get('GPS_lat');\nvar lon = flow.get('GPS_lon');\nvar API = \"15ece816511080f7ed8f8cac1c57f745\";\n\n// get weather\nmsg.url= \"api.openweathermap.org/data/2.5/weather?lat=\"+lat+\"&lon=\"+lon+\"&appid=\"+API+\"&units=metric\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "/*\nglobal.set('Latitude', \"XXXXX\");\nglobal.set('Longitude', \"XXXXX\");\nglobal.set('weatherAPI', \"XXXXX\");\n*/",
+        "finalize": "",
+        "libs": [],
+        "x": 1238.3333129882812,
+        "y": 531.6666259765625,
+        "wires": [
+            [
+                "ea9af096b45dc30c"
+            ]
+        ]
+    },
+    {
+        "id": "e6ded2db6de766da",
+        "type": "debug",
+        "z": "aa2352e70a75489a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1810,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "98659024e9ac05ba",
+        "type": "mqtt-broker",
+        "name": "local_zhanel",
+        "broker": "192.168.178.75",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "222d08624a021b4c",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "database",
+        "name": "influx_temp",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "https://europe-west1-1.gcp.cloud2.influxdata.com",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "0e28a1cc2da85f0d",
+        "type": "telegram bot",
+        "botname": "AQ2_bot",
+        "usernames": "zhaneka_zh",
+        "chatids": "-100740268708,-740268708",
+        "baseapiurl": "",
+        "updatemode": "polling",
+        "pollinterval": "300",
+        "usesocks": false,
+        "sockshost": "",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": true
+    }
+]
